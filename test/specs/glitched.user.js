@@ -25,7 +25,9 @@ describe('My Login application', () => {
     });
 
     it('Should logout', async () => {
+        await Homepage.menuBtn.waitForClickable();
         await Homepage.menuBtn.click();
+        await Homepage.logoutBtn.waitForClickable();
         await Homepage.logoutBtn.click()
         await expect(browser).toHaveUrl("https://www.saucedemo.com/");
     });
