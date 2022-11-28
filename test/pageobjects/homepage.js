@@ -18,7 +18,7 @@ class Homepage {
     }
 
     get inventoryImg () {
-        return $('#item_4_img_link > img')
+        return $('.inventory_item_img')
     }
 
     get addToCartBackpack () {
@@ -61,13 +61,13 @@ class Homepage {
         return $('#remove-sauce-labs-onesie')
     }
 
-    get addToCartRedTShirt () {
+/*     get addToCartRedTShirt () {
         return $('#add-to-cart-test.allthethings()-t-shirt-(red)')
     }
 
     get removeRedTShirt () {
         return $('#remove-test.allthethings()-t-shirt-(red)')
-    }
+    } */
 
     get cartBtn () {
         return $('#shopping_cart_container > a')
