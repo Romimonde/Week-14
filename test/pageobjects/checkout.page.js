@@ -1,7 +1,7 @@
 /**
  * sub page containing specific selectors and methods for a specific page
  */
- class checkoutPage {
+ class CheckoutPage {
     /**
      * define selectors using getter methods
      */
@@ -19,7 +19,7 @@
     }
 
     get errorBtn () {
-        return $('.error-button')
+        return $('<h3>')
     }
 
     get continueBtn () {
@@ -50,4 +50,4 @@
     }
 }
 
-export default new checkoutPage();
+export default new CheckoutPage();

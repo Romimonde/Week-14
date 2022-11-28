@@ -1,7 +1,7 @@
 /**
  * sub page containing specific selectors and methods for a specific page
  */
- class cartPage {
+ class CartPage {
     /**
      * define selectors using getter methods
      */
@@ -39,4 +39,4 @@
     }
 }
 
-export default new cartPage();
+export default new CartPage();

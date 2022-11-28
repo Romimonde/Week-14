@@ -1,6 +1,6 @@
 import LoginPage from  '../pageobjects/login.page';
 import Homepage from  '../pageobjects/homepage';
-import linkedinPage from '../pageobjects/linkedin.page';
+import LinkedinPage from '../pageobjects/linkedin.page';
 
 describe('Info pages', () => {
     beforeAll('Navigate to url', () => {
@@ -33,7 +33,7 @@ describe('Info pages', () => {
     it('Should display Swag labs LinkedIn page', async () => {
         await Homepage.linkedInIcon.click();
         await browser.switchWindow('Iniciar sesión | LinkedIn');
-        await expect(linkedinPage.linkedInIcon).toBeDisplayed();
+        await expect(LinkedinPage.linkedInIcon).toBeDisplayed();
         await browser.switchWindow("https://www.saucedemo.com/inventory.html");
         await Homepage.menuBtn.click();
         await Homepage.logoutBtn.click();

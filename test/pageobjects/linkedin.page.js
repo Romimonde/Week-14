@@ -1,7 +1,7 @@
 /**
  * sub page containing specific selectors and methods for a specific page
  */
- class linkedInPage {
+ class LinkedInPage {
     /**
      * define selectors using getter methods
      */
@@ -10,4 +10,4 @@
     }
 }
 
-export default new linkedInPage();
+export default new LinkedInPage();

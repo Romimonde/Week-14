@@ -77,14 +77,14 @@ class Homepage {
         return $('#page_wrapper > footer > ul > li.social_linkedin > a')
     }
 
-/*     get addToCartRedTShirt () {
-        return $('#add-to-cart-test.allthethings()-t-shirt-(red)')
+     get addToCartRedTShirt () {
+        return $('//*[@id="add-to-cart-test.allthethings()-t-shirt-(red)"]')
     }
 
     get removeRedTShirt () {
-        return $('#remove-test.allthethings()-t-shirt-(red)')
+        return $('//*[@id="remove-test.allthethings()-t-shirt-(red)"]')
     }
-*/
+
     get cartBtn () {
         return $('#shopping_cart_container > a')
     }

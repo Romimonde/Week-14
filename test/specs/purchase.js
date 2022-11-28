@@ -1,7 +1,7 @@
 import LoginPage from  '../pageobjects/login.page';
 import Homepage from  '../pageobjects/homepage';
 import CartPage from '../pageobjects/cart.page';
-import checkoutPage from '../pageobjects/checkout.page';
+import CheckoutPage from '../pageobjects/checkout.page';
 
 describe('Purchase application', () => {
     beforeAll('Navigate to url', () => {
@@ -16,13 +16,14 @@ describe('Purchase application', () => {
         await Homepage.addToCartBoltTShirt.click();
         await Homepage.addToCartFleeceJacket.click();
         await Homepage.addToCartOnesie.click();
-         await Homepage.addToCartRedTShirt.click();
+        await Homepage.addToCartRedTShirt.click();
         await expect(Homepage.removeBackpackBtn).toBeClickable();
         await expect(Homepage.removeBikelight).toBeClickable();
         await expect(Homepage.removeBoltTshirt).toBeClickable();
         await expect(Homepage.removeFleeceJacket).toBeClickable();
         await expect(Homepage.removeOnesie).toBeClickable();
         await expect(Homepage.removeRedTShirt).toBeClickable();
+        await Homepage.removeBoltTshirt.click();
         await Homepage.removeOnesie.click();
     });
 
@@ -30,32 +31,36 @@ describe('Purchase application', () => {
         await Homepage.cartBtn.click();
         await expect(browser).toHaveUrl("https://www.saucedemo.com/cart.html")
         await CartPage.checkoutBtn.click();
-        await checkoutPage.checkout('', '', '');
-        await expect(checkoutPage.errorBtn).toBeDisplayed();
+        await CheckoutPage.checkout('', '', '');
+        await expect(CheckoutPage.errorBtn).toBeDisplayed();
+        await expect(CheckoutPage.errorBtn).toHaveText('Error: First Name is required');
     });
 
     it('Should not checkout with empty name field', async () => {
-        await checkoutPage.firstNameInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
-        await checkoutPage.checkout('', 'Mondello', '30000');
-        await expect(checkoutPage.errorBtn).toBeDisplayed();
+        await CheckoutPage.firstNameInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
+        await CheckoutPage.checkout('', 'Mondello', '30000');
+        await expect(CheckoutPage.errorBtn).toBeDisplayed();
+        await expect(CheckoutPage.errorBtn).toHaveText('Error: First Name is required');
     });
 
     it('Should not checkout with empty last name field', async () => {
-        await checkoutPage.lastNameInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
-        await checkoutPage.zipInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
-        await checkoutPage.checkout('Romina', '', '30000');
-        await expect(checkoutPage.errorBtn).toBeDisplayed();
+        await CheckoutPage.lastNameInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
+        await CheckoutPage.zipInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
+        await CheckoutPage.checkout('Romina', '', '30000');
+        await expect(CheckoutPage.errorBtn).toBeDisplayed();
+        await expect(CheckoutPage.errorBtn).toHaveText('Error: Last Name is required');
     });
 
     it('Should not checkout with empty zip code field', async () => {
-        await checkoutPage.firstNameInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
-        await checkoutPage.zipInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
-        await checkoutPage.checkout('Romina', 'Mondello', '');
-        await expect(checkoutPage.errorBtn).toBeDisplayed();
+        await CheckoutPage.firstNameInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
+        await CheckoutPage.zipInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
+        await CheckoutPage.checkout('Romina', 'Mondello', '');
+        await expect(CheckoutPage.errorBtn).toBeDisplayed();
+        await expect(CheckoutPage.errorBtn).toHaveTextContaining('Error: Postal Code is required');
     });
 
     it('Should cancel purchase', async () => {
-        await checkoutPage.cancelBtn.click();
+        await CheckoutPage.cancelBtn.click();
         await expect(browser).toHaveUrl("https://www.saucedemo.com/cart.html");
         await CartPage.continueShopBtn.click();
         await expect(browser).toHaveUrl("https://www.saucedemo.com/inventory.html");
@@ -65,10 +70,14 @@ describe('Purchase application', () => {
     it('Should succesully purchase', async () => {
         await Homepage.cartBtn.click();
         await CartPage.checkoutBtn.click();
-        await checkoutPage.checkout('Romina', 'Mondello', '30000');
-        await checkoutPage.finishBtn.click();
-        await expect(checkoutPage.ponyImg).toBeDisplayed();
-        await expect(checkoutPage.backHomeBtn).toBeDisplayed();
-        await checkoutPage.backHomeBtn.click();
+        await CheckoutPage.checkout('Romina', 'Mondello', '30000');
+        await CheckoutPage.finishBtn.click();
+        await expect(CheckoutPage.ponyImg).toBeDisplayed();
+        await expect(CheckoutPage.backHomeBtn).toBeDisplayed();
+        await CheckoutPage.backHomeBtn.click();
+        await expect(browser).toHaveUrl("https://www.saucedemo.com/inventory.html");
+        await Homepage.menuBtn.click();
+        await Homepage.logoutBtn.click();
+        await expect(browser).toHaveUrl("https://www.saucedemo.com/");
     });
 });
