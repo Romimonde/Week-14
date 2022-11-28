@@ -37,7 +37,6 @@
     get checkoutBtn () {
         return $('#checkout')
     }
-
 }
 
 export default new cartPage();

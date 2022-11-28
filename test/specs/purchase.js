@@ -16,13 +16,13 @@ describe('Purchase application', () => {
         await Homepage.addToCartBoltTShirt.click();
         await Homepage.addToCartFleeceJacket.click();
         await Homepage.addToCartOnesie.click();
-/*         await Homepage.addToCartRedTShirt.click(); */
+         await Homepage.addToCartRedTShirt.click();
         await expect(Homepage.removeBackpackBtn).toBeClickable();
         await expect(Homepage.removeBikelight).toBeClickable();
         await expect(Homepage.removeBoltTshirt).toBeClickable();
         await expect(Homepage.removeFleeceJacket).toBeClickable();
         await expect(Homepage.removeOnesie).toBeClickable();
-/*         await expect(Homepage.removeRedTShirt).toBeClickable(); */
+        await expect(Homepage.removeRedTShirt).toBeClickable();
         await Homepage.removeOnesie.click();
     });
 
@@ -47,7 +47,7 @@ describe('Purchase application', () => {
         await expect(checkoutPage.errorBtn).toBeDisplayed();
     });
 
-    it('Should not checkout with zip code field', async () => {
+    it('Should not checkout with empty zip code field', async () => {
         await checkoutPage.firstNameInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
         await checkoutPage.zipInput.setValue([' ', 'Backspace'], { translateToUnicode: true });
         await checkoutPage.checkout('Romina', 'Mondello', '');

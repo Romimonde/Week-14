@@ -13,6 +13,10 @@ class Homepage {
         return $('#react-burger-menu-btn')
     }
 
+    get aboutBtn () {
+        return $('#about_sidebar_link')
+    }
+
     get dogImg () {
         return $('#item_4_img_link > img')
     }
@@ -61,14 +65,26 @@ class Homepage {
         return $('#remove-sauce-labs-onesie')
     }
 
+    get twitterIcon () {
+        return $('#page_wrapper > footer > ul > li.social_twitter')
+    }
+
+    get facebookIcon () {
+        return $('#page_wrapper > footer > ul > li.social_facebook > a')
+    }
+
+    get linkedInIcon () {
+        return $('#page_wrapper > footer > ul > li.social_linkedin > a')
+    }
+
 /*     get addToCartRedTShirt () {
         return $('#add-to-cart-test.allthethings()-t-shirt-(red)')
     }
 
     get removeRedTShirt () {
         return $('#remove-test.allthethings()-t-shirt-(red)')
-    } */
-
+    }
+*/
     get cartBtn () {
         return $('#shopping_cart_container > a')
     }

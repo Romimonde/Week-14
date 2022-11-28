@@ -18,6 +18,10 @@
         return $('#postal-code')
     }
 
+    get errorBtn () {
+        return $('.error-button')
+    }
+
     get continueBtn () {
         return $('#continue')
     }
@@ -36,6 +40,13 @@
 
     get backHomeBtn () {
         return $('#back-to-products')
+    }
+
+    async checkout (firstName, lastName, zip) {
+        await this.firstNameInput.setValue(firstName);
+        await this.lastNameInput.setValue(lastName);
+        await this.zipInput.setValue(zip);
+        await this.continueBtn.click();
     }
 }
 
