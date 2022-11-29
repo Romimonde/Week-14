@@ -1,7 +1,7 @@
 import LoginPage from  '../pageobjects/login.page';
 import Homepage from  '../pageobjects/homepage';
 
-describe('My Login application', () => {
+describe('User with problem login form', () => {
     beforeAll('Navigate to url', () => {
     browser.url("https://www.saucedemo.com/");
     })

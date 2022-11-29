@@ -1,6 +1,6 @@
 import LoginPage from  '../pageobjects/login.page';
 
-describe('My Login application', () => {
+describe('Locked out user login form', () => {
     beforeAll('Navigate to url', () => {
     browser.url("https://www.saucedemo.com/");
     })

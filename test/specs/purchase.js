@@ -3,7 +3,7 @@ import Homepage from  '../pageobjects/homepage';
 import CartPage from '../pageobjects/cart.page';
 import CheckoutPage from '../pageobjects/checkout.page';
 
-describe('Purchase application', () => {
+describe('Standard user purchase operation', () => {
     beforeAll('Navigate to url', () => {
     browser.url("https://www.saucedemo.com/");
     })
