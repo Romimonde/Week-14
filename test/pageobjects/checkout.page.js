@@ -1,10 +1,4 @@
-/**
- * sub page containing specific selectors and methods for a specific page
- */
  class CheckoutPage {
-    /**
-     * define selectors using getter methods
-     */
 
     get firstNameInput () {
         return $('#first-name')

@@ -1,10 +1,4 @@
-/**
- * sub page containing specific selectors and methods for a specific page
- */
  class CartPage {
-    /**
-     * define selectors using getter methods
-     */
 
      get removeBackpackBtn () {
         return $('#remove-sauce-labs-backpack')
